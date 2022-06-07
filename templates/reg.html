@@ -1,0 +1,101 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="btn" style="margin-top: 20px; margin-bottom: 10px;">Просмотр информации о странице</button>
+        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Информация</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="dateofinfo" align="left">
+                        Данная страница содержить информацию об зарегистрированных пациентах в поликлиники.
+                        Сналача необходимо ввести ФИО пациента и затем указать дату его рожденния.
+                    </p>
+                    <a href="https://disk.yandex.ru/i/6wnpS-jpRW0PsQ">Руководство пользователя</a>
+                    <p align="left">
+                        В форме регистрации нового пациента есть ограничения на:
+                    </p>
+                    <ul class="ulinfo">
+                        <li>
+                            <p align="left" class="mb-1">Отправку пустой формы</p>
+                        </li>
+                        <li>
+                            <p align="left" class="mb-1">Ввод числовых значений в поля: Фамилия, Имя, Отчество</p>
+                        </li>
+                        <li>
+                            <p align="left" class="mb-1">Некорректный ввод даты рождения</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            Введите данные для регистрации нового пациента
+        </div>
+        <div class="mb-3">
+            <form method="post" action="#" value="" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <input type="text" name = "second_name" id="name" placeholder="Фамилия" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                </div>
+                <div class="mb-3">
+                    <input type="text" name = "first_name" id="name" placeholder="Имя" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                </div>
+                <div class="mb-3">
+                    <input type="text" name = "last_name" id="name" placeholder="Отчество" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                </div>
+                <label for="bday">Дата рождения:</label>
+                <div class="mb-3">
+                    <input type="date" id="bday" name="bday">
+                </div>
+                <input type="`text`" name="id_post" id="id_post" value="" disable hidden>
+                <button type="submit" class="main_button" id="main_button">Добавить</button>
+                <input type="hidden" name="next" value="" />
+            </form>
+        </div>
+        <div class="row" style="justify-content: center;width: 300px; margin: auto" id="error">
+{#            {% for massage in messages %}#}
+{#                <ul class="{{ massage.tags }}">#}
+{#                    {% if 'safe' in massage.tags %}{{ massage|safe }}{% else %}{{ massage }}{% endif %}#}
+{#                </ul>#}
+{#            {% endfor %}#}
+        </div>
+    </div>
+    <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Отчество</th>
+                <th scope="col">Дата рождения</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+{#            {% for ppl in pacient_all %}#}
+{#                <tbody>#}
+{#                    <tr>#}
+{#                        <td>{{ ppl.name }}</td>#}
+{#                        <td>{{ ppl.second_name }}</td>#}
+{#                        <td>{{ ppl.last_name }}</td>#}
+{#                        <td>{{ ppl.date_b }}</td>#}
+{#                        <td>#}
+{#                            <form action="{% url 'deletePpl' %}" value="" enctype="multipart/form-data" method="post">#}
+{#                                {% csrf_token %}#}
+{#                                <input type="text" name="id_ppl" value="{{ ppl.id }}" disable hidden>#}
+{#                                <input class="inp" type="submit" name="delete" value="Удалить">#}
+{#                            </form>#}
+{#                        </td>#}
+{#                    </tr>#}
+{#                </tbody>#}
+{#            {% endfor %}#}
+        </table>
+{% endblock %}

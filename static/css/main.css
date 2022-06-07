@@ -1,0 +1,35 @@
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.dleft{
+    min-width: 400px;
+    max-width: 900px;
+}
+.sright{
+    min-width: 400px;
+    max-width: 900px;
+}
+.raz{
+    max-height: 900px;
+    min-height: 700px;
+}
+.lraz{
+    margin-right: 20px;
+
+}
+.auth{
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.auth_cont {
+    padding: 20px;
+    border: 10px solid transparent;
+    border-radius: 20px;
+    background-color: #F8F9FA;
+}
+.bodyc{
+
+}

@@ -1,0 +1,100 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="btn" style="margin-top: 20px; margin-bottom: 10px;">Просмотр информации о странице</button>
+        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Информация</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p class="dateofinfo" align="left">
+                     Данная страница содержить информацию об обращениях пациентов в поликлинику.
+                      Сналача необходимо выбрать пациента, затем его лечящего врача и указать установленый диагноз вместе с датой посещения.
+                  </p>
+                    <a href="https://disk.yandex.ru/i/6wnpS-jpRW0PsQ">Руководство пользователя</a>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            Выберите пациента и дату обращения
+        </div>
+        <div class="mb-3">
+            <form method="post" action="#" value="" name="empf">
+                {% csrf_token %}
+                <label for="pacient">Пациент:</label>
+                <select class="form-control mb-3" id="" name="pac" style="width: 200px;margin: auto">
+{#                    {% for tvad in pacient_all %}#}
+{#                        <option value="{{ tvad.id }}">{{ tvad.name }} {{ tvad.second_name }} {{ tvad.last_name }}</option>#}
+{#                    {% endfor %}#}
+                </select>
+                <label for="doctor">Врач:</label>
+                <select class="form-control mb-3" id="" name="vrac" style="width: 200px;margin: auto">
+{#                    {% for tvad in emp_all %}#}
+{#                        <option value="{{ tvad.id }}">{{ tvad.name }} {{ tvad.second_name }} {{ tvad.last_name }} {{ tvad.special.name }}</option>#}
+{#                    {% endfor %}#}
+{#                    <input type="submit" />#}
+                </select>
+
+                <label for="pacient">Диагноз:</label>
+                <select class="form-control mb-3" id="" name="diagn" style="width: 200px;margin: auto">
+{#                    {% for tvad in diag_all %}#}
+{#                        <option value="{{ tvad.id }}">{{ tvad.name }} </option>#}
+{#                    {% endfor %}#}
+                </select>
+                <label for="dday">Дата приёма:</label>
+                <div class="mb-3">
+                    <input type="date" id="dday" name="dday" onkeydown="return false">
+                </div>
+                <input type="`text`" name="id_post" id="id_post" value="" disable hidden>
+                <button type="submit" class="main_button" id="main_button">Добавить</button>
+                <input type="hidden" name="next" value="" />
+            </form>
+        </div>
+        <div class="row" style="justify-content: center" id="error">
+{#            {% for massage in messages %}#}
+{#                <ul class="{{ massage.tags }}">#}
+{#                    {% if 'safe' in massage.tags %}{{ massage|safe }}{% else %}{{ massage }}{% endif %}#}
+{#                </ul>#}
+{#            {% endfor %}#}
+        </div>
+    </div>
+     <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Пациент</th>
+                <th scope="col">Врач</th>
+                <th scope="col">Диагноз</th>
+                <th scope="col">Время посещения</th>
+                <th scope="col">Стоимость лечения</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+{#            {% for dto in dateof_all %}#}
+{#                <tbody>#}
+{#                    <tr>#}
+{#                        <td>{{ dto.pacient.name }} {{ dto.pacient.second_name }} {{ dto.pacient.last_name }}  </td>#}
+{#                        <td>{{ dto.emp.name }} {{ dto.emp.second_name }} {{ dto.emp.last_name }}</td>#}
+{#                        <td>{{ dto.diag.name }}</td>#}
+{#                        <td>{{ dto.dateoft }}</td>#}
+{#                        <td>{{ dto.costh }}</td>#}
+{#                        <td>#}
+{#                            <form action="{% url 'deletedate' %}" value="" enctype="multipart/form-data" method="post">#}
+{#                                {% csrf_token %}#}
+{#                                <input type="text" name="id_dto" value="{{ dto.id }}" disable hidden>#}
+{#                                <input class="inp" type="submit" name="delete" value="Удалить">#}
+{#                            </form>#}
+{#                        </td>#}
+{#                    </tr>#}
+{#                </tbody>#}
+{#            {% endfor %}#}
+        </table>
+{% endblock %}
