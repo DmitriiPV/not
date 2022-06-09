@@ -24,42 +24,42 @@
               </div>
             </div>
         </div>
-        <div class="mb-3">
-            Выберите пациента и дату обращения
-        </div>
-        <div class="mb-3">
-            <form method="post" action="#" value="" name="empf">
-                {% csrf_token %}
-                <label for="pacient">Пациент:</label>
-                <select class="form-control mb-3" id="" name="pac" style="width: 200px;margin: auto">
+{#        <div class="mb-3">#}
+{#            Выберите пациента и дату обращения#}
+{#        </div>#}
+{#        <div class="mb-3">#}
+{#            <form method="post" action="#" value="" name="empf">#}
+{#                {% csrf_token %}#}
+{#                <label for="pacient">Пациент:</label>#}
+{#                <select class="form-control mb-3" id="" name="pac" style="width: 200px;margin: auto">#}
 {#                    {% for tvad in pacient_all %}#}
 {#                        <option value="{{ tvad.id }}">{{ tvad.name }} {{ tvad.second_name }} {{ tvad.last_name }}</option>#}
 {#                    {% endfor %}#}
-                </select>
-                <label for="doctor">Врач:</label>
-                <select class="form-control mb-3" id="" name="vrac" style="width: 200px;margin: auto">
+{#                </select>#}
+{#                <label for="doctor">Врач:</label>#}
+{#                <select class="form-control mb-3" id="" name="vrac" style="width: 200px;margin: auto">#}
 {#                    {% for tvad in emp_all %}#}
 {#                        <option value="{{ tvad.id }}">{{ tvad.name }} {{ tvad.second_name }} {{ tvad.last_name }} {{ tvad.special.name }}</option>#}
 {#                    {% endfor %}#}
 {#                    <input type="submit" />#}
-                </select>
-
-                <label for="pacient">Диагноз:</label>
-                <select class="form-control mb-3" id="" name="diagn" style="width: 200px;margin: auto">
+{#                </select>#}
+{##}
+{#                <label for="pacient">Диагноз:</label>#}
+{#                <select class="form-control mb-3" id="" name="diagn" style="width: 200px;margin: auto">#}
 {#                    {% for tvad in diag_all %}#}
 {#                        <option value="{{ tvad.id }}">{{ tvad.name }} </option>#}
 {#                    {% endfor %}#}
-                </select>
-                <label for="dday">Дата приёма:</label>
-                <div class="mb-3">
-                    <input type="date" id="dday" name="dday" onkeydown="return false">
-                </div>
-                <input type="`text`" name="id_post" id="id_post" value="" disable hidden>
-                <button type="submit" class="main_button" id="main_button">Добавить</button>
-                <input type="hidden" name="next" value="" />
-            </form>
-        </div>
-        <div class="row" style="justify-content: center" id="error">
+{#                </select>#}
+{#                <label for="dday">Дата приёма:</label>#}
+{#                <div class="mb-3">#}
+{#                    <input type="date" id="dday" name="dday" onkeydown="return false">#}
+{#                </div>#}
+{#                <input type="`text`" name="id_post" id="id_post" value="" disable hidden>#}
+{#                <button type="submit" class="main_button" id="main_button">Добавить</button>#}
+{#                <input type="hidden" name="next" value="" />#}
+{#            </form>#}
+{#        </div>#}
+{#        <div class="row" style="justify-content: center" id="error">#}
 {#            {% for massage in messages %}#}
 {#                <ul class="{{ massage.tags }}">#}
 {#                    {% if 'safe' in massage.tags %}{{ massage|safe }}{% else %}{{ massage }}{% endif %}#}
@@ -70,11 +70,13 @@
      <table class="table">
             <thead>
             <tr>
-                <th scope="col">Пациент</th>
-                <th scope="col">Врач</th>
-                <th scope="col">Диагноз</th>
-                <th scope="col">Время посещения</th>
-                <th scope="col">Стоимость лечения</th>
+                 <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Отчество</th>
+                <th scope="col">Дата записи</th>
+                <th scope="col">Время записи</th>
+                <th scope="col">Выбранные услуги</th>
+                <th scope="col">Общая стоимость</th>
                 <th scope="col"></th>
             </tr>
             </thead>

@@ -38,24 +38,27 @@
             </div>
         </div>
         <div class="mb-3">
-            Введите данные для регистрации нового пациента
+            Введите данные для добавления новой услуги
         </div>
         <div class="mb-3">
             <form method="post" action="#" value="" enctype="multipart/form-data">
                 {% csrf_token %}
-
                 <div class="mb-3">
-                    <input type="text" name = "second_name" id="name" placeholder="Фамилия" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                    <label for="pacient">Выберите категорию:</label>
+                    <select class="" id="" name="cat" style="width: 200px;margin: auto">
+                    </select>
                 </div>
                 <div class="mb-3">
-                    <input type="text" name = "first_name" id="name" placeholder="Имя" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                    <label for="pacient">Или создайте новую категорию:</label>
+                    <input type="text" name = "second_name" id="name" placeholder="Категория" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
                 </div>
                 <div class="mb-3">
-                    <input type="text" name = "last_name" id="name" placeholder="Отчество" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
+                    <label for="pacient">Введите название услуги:</label>
+                    <input type="text" name = "second_name" id="name" placeholder="Услуга" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
                 </div>
-                <label for="bday">Дата рождения:</label>
                 <div class="mb-3">
-                    <input type="date" id="bday" name="bday">
+                    <label for="pacient">Введите стоимость услуги:</label>
+                    <input type="text" name = "second_name" id="name" placeholder="Стоимость" title="Разрешено использовать только пробелы и русские буквы" pattern="^[А-Яа-яЁё\s\-]+$" >
                 </div>
                 <input type="`text`" name="id_post" id="id_post" value="" disable hidden>
                 <button type="submit" class="main_button" id="main_button">Добавить</button>
@@ -73,10 +76,9 @@
     <table class="table">
             <thead>
             <tr>
-                <th scope="col">Имя</th>
-                <th scope="col">Фамилия</th>
-                <th scope="col">Отчество</th>
-                <th scope="col">Дата рождения</th>
+                <th scope="col">Категория услуг</th>
+                <th scope="col">Название услуги</th>
+                <th scope="col">Стоимость</th>
                 <th scope="col"></th>
             </tr>
             </thead>
