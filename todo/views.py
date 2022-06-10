@@ -6,7 +6,6 @@ import getpass
 
 
 def index(request):
-    # отображение главной страницы
     return render(request, 'index.html', {
         'title': 'Главная страница',
     })
@@ -42,7 +41,6 @@ def createPpl(request):
 
 
 def reg(request):
-    # отображение страницы регистрации
     pacient_all = Pacient.objects.all()
     return render(request, 'reg.html', {
         'title': 'Регистрация',
